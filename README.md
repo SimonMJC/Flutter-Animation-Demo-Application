@@ -95,7 +95,6 @@
   ```dart
   RiveAnimation.asset(
     'assets/animation.riv',
-    controllers: [_controller],
   );
   ```
 
