@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "795822588703",
+    "project_id": "flutter-crashlytics-ff39c",
+    "storage_bucket": "flutter-crashlytics-ff39c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795822588703:android:2f6781aaea56f5b4d3e62a",
+        "android_client_info": {
+          "package_name": "com.example.animation_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAe4TGWoxtpCAFV2az6ZW7KjsRWjKYZZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

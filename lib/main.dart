@@ -7,8 +7,20 @@ import 'page/rive_page.dart';
 import 'page/lottie_page.dart';
 import 'page/gesture_page.dart';
 import 'page/explicit_page.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'dart:ui';
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+   FlutterError.onError = (errorDetails) {
+      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+    };
+    // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+    PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
   runApp(const MyApp());
 }
 
@@ -111,14 +123,16 @@ class MyHomePage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ExplicitPage(),
-                  ),
-                );
+                throw Exception('Test Exception');
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => const ExplicitPage(),
+                //   ),
+                // );
               },
-              child: const Text('Explicit Animation 예제 보기'),
+              child: const Text('Test Exception'),
+              //child: const Text('Explicit Animation 예제 보기'),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
